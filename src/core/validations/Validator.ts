@@ -1,5 +1,5 @@
 import {body, header, validationResult} from "express-validator";
-import {UserRoleValues} from "../entities/UserRoles";
+import {UserRoles} from "../entities/UserRoles";
 import {HttpValidationError} from "./errors/HttpValidationError";
 import * as express from "express";
 
@@ -16,6 +16,6 @@ export const validateCreateUser = [
 		body("firstName").exists().isLength({min: 3}).trim(),
 		body("lastName").optional().isLength({min: 3}).trim(),
 		body("uid").exists().notEmpty(),
-		body("role").exists().custom(value => Object.values(UserRoleValues).filter(role => role != UserRoleValues.ADMIN).includes(value)),
+		body("role").exists().custom(value => Object.values(UserRoles).filter(role => role != UserRoles.ADMIN).includes(value)),
 	];
 
