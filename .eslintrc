@@ -1,0 +1,54 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+	"parserOptions": {
+			"project": "./tsconfig.json"
+	},
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "quotes": ["error", "double"],
+		"curly": "error",
+		"semi": "error",
+		"no-console": "warn",
+		"keyword-spacing": ["warn"],
+		"key-spacing": ["warn"],
+		"padded-blocks": ["warn", {"blocks": "never", "classes":  "always"}],
+		//"lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+		"space-infix-ops": "error",
+		"comma-spacing": ["error", { "before": false, "after": true }],
+		"no-multiple-empty-lines": ["error", {"max": 1}],
+	  	"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+		"object-curly-spacing": "error",
+		"@typescript-eslint/promise-function-async": [
+			"warn",
+			{
+				"checkArrowFunctions": false
+			}
+		],
+		"@typescript-eslint/ban-types": "off", // Enable after we replaced all occurences of "object"
+		"@typescript-eslint/member-ordering": ["warn", {"default":  ["field", "constructor", "public-method", "private-method"]}],
+		"@typescript-eslint/ban-ts-comment": "off",
+		"@typescript-eslint/no-explicit-any": "off", // Enable after we used unknown (or a real type) everywhere
+		"@typescript-eslint/explicit-function-return-type": ["warn", {
+			"allowExpressions": true,
+			"allowTypedFunctionExpressions": true,
+			"allowHigherOrderFunctions": true,
+			"allowConciseArrowFunctionExpressionsStartingWithVoid": true
+		}], // Enable after we used unknown (or a real type) everywhere
+		"@typescript-eslint/explicit-module-boundary-types": "off", // Another case of any,
+		"@typescript-eslint/type-annotation-spacing": ["warn"], // Another case of any,
+		"@typescript-eslint/member-delimiter-style": ["error"],
+		"@typescript-eslint/no-var-requires": "off", // So far we need it for our lazy-loading logic
+		"@typescript-eslint/no-unused-vars": ["error", {
+			"varsIgnorePattern": "^_",
+			"argsIgnorePattern": "^_"
+		}]
+  }
+}

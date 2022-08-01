@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["es6", "dom"],
+    "types": ["reflect-metadata", "node"],
+    "module": "commonjs",
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true
+  }
+}
