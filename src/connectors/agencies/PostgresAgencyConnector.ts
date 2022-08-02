@@ -1,7 +1,8 @@
 import {AgencyConnector} from "./AgencyConnector";
 import {Agency, AgencyCreateRequest} from "./entities/Agency";
-import {PrismaClient} from "@prisma/client";
+import {Prisma, PrismaClient} from "@prisma/client";
 import {injectable} from "inversify";
+import {EntryNotFoundError} from "../../core/errors/EntryNotFoundError";
 
 @injectable()
 export class PostgresAgencyConnector implements AgencyConnector {
@@ -41,6 +42,22 @@ export class PostgresAgencyConnector implements AgencyConnector {
 		return this.prisma.agency.findFirst({
 			where: {createdBy: id},
 		});
+	}
+
+	async update(id: string, update: Partial<Agency>): Promise<Agency> {
+		try {
+			return await this.prisma.agency.update({
+				where: {id: id},
+				data: update
+			});
+	} catch (error) {
+		if (error instanceof Prisma.PrismaClientKnownRequestError) {
+			if (error.code === "P2025") {
+				throw new EntryNotFoundError(id);
+			}
+		}
+		throw error;
+	}
 	}
 
 }

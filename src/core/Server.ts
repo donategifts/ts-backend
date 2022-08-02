@@ -5,6 +5,7 @@ import * as cors from "cors";
 import * as express from "express";
 import {errors} from "celebrate";
 import {EntryAlreadyExistsError} from "./errors/EntryAlreadyExistsError";
+import {EntryNotFoundError} from "./errors/EntryNotFoundError";
 
 export const server = new InversifyExpressServer(container);
 
@@ -18,7 +19,7 @@ server.setErrorConfig((app) => {
 	app.use(errors());
 	app.use(function (error: any, _req: express.Request, res: express.Response, _next: express.NextFunction) {
 		console.error(error);
-		if (error instanceof EntryAlreadyExistsError) {
+		if (error instanceof EntryAlreadyExistsError || EntryNotFoundError) {
 			res.status(error.status).json({error: error.message});
 			return;
 		}

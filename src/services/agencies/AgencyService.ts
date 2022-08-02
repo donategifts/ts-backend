@@ -18,4 +18,8 @@ export class AgencyService {
 		return this.connector.create(agencyCreateRequest);
 	}
 
+	verify(id: string) {
+		return this.connector.update(id, {isVerified: true});
+
+	}
 }
