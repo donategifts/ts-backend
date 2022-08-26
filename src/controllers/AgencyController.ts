@@ -2,14 +2,13 @@ import * as express from "express";
 import {inject} from "inversify";
 import {controller, httpGet, httpPost, interfaces, next, request, requestParam, response} from "inversify-express-utils";
 import {TYPES} from "../core/types";
-import {validateToken} from "../core/validations/FirebaseValidator";
-import {AgencyService} from "../services/agencies/AgencyService";
+import {AgencyService} from "../services/AgencyService";
 import {Agency, AgencyCreateRequest} from "../connectors/agencies/entities/Agency";
 import {celebrate} from "celebrate";
-import {validateAuthHeader} from "../core/validations/AuthenticationValidator";
+import {validateAuthHeader, validateToken} from "../core/validations/AuthenticationValidator";
 import {validateCreateAgency, validateVerifyAgency} from "../core/validations/AgencyValidator";
 
-@controller("/agencies")
+@controller("/agency")
 export class AgencyController implements interfaces.Controller {
 
 	constructor( @inject(TYPES.AgencyServiceType) private agencyService: AgencyService ) {

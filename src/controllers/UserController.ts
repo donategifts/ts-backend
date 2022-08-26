@@ -2,14 +2,13 @@ import * as express from "express";
 import {inject} from "inversify";
 import {controller, httpGet, httpPost, httpPut, interfaces, next, request, response} from "inversify-express-utils";
 import {TYPES} from "../core/types";
-import {UserService} from "../services/users/UserService";
+import {UserService} from "../services/UserService";
 import {User, UserCreateInput, UserUpdateInput} from "../connectors/users/entities/User";
-import {validateToken} from "../core/validations/FirebaseValidator";
 import {validateCreateUser, validateUpdateUser} from "../core/validations/UserValidator";
 import {celebrate} from "celebrate";
-import {validateAuthHeader} from "../core/validations/AuthenticationValidator";
+import {validateAuthHeader, validateToken} from "../core/validations/AuthenticationValidator";
 
-@controller("/users")
+@controller("/user")
 export class UserController implements interfaces.Controller {
 
 	constructor( @inject(TYPES.UserServiceType) private userService: UserService ) {

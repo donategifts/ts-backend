@@ -1,4 +1,4 @@
-import {UserRoles} from "../entities/UserRoles";
+import {UserRoles} from "../../connectors/users/entities/UserRoles";
 import {Joi, Segments} from "celebrate";
 import {validateAddress} from "./AddressValidator";
 

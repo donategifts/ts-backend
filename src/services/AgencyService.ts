@@ -1,7 +1,7 @@
 import {inject, injectable} from "inversify";
-import {TYPES} from "../../core/types";
-import {AgencyConnector} from "../../connectors/agencies/AgencyConnector";
-import {Agency, AgencyCreateRequest} from "../../connectors/agencies/entities/Agency";
+import {TYPES} from "../core/types";
+import {AgencyConnector} from "../connectors/agencies/AgencyConnector";
+import {Agency, AgencyCreateRequest} from "../connectors/agencies/entities/Agency";
 
 @injectable()
 export class AgencyService {

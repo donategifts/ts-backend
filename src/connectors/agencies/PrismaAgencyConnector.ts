@@ -5,7 +5,7 @@ import {injectable} from "inversify";
 import {EntryNotFoundError} from "../../core/errors/EntryNotFoundError";
 
 @injectable()
-export class PostgresAgencyConnector implements AgencyConnector {
+export class PrismaAgencyConnector implements AgencyConnector {
 
 	private prisma: PrismaClient;
 	constructor() {

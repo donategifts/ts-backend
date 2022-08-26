@@ -17,6 +17,7 @@ model User {
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
   Agency    Agency[]
+  Card      Card[]
 }
 
 model Agency {
@@ -33,6 +34,7 @@ model Agency {
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   deletedAt  DateTime?
+  Card       Card[]
 }
 
 model Address {
@@ -48,9 +50,66 @@ model Address {
   updatedAt         DateTime  @updatedAt
   deletedAt         DateTime?
   Agency            Agency[]
+  Card              Card[]
+}
+
+model Card {
+  id        String      @id @default(uuid())
+  type      CardType
+  images    CardImage[]
+  itemUrl   String
+  itemPrice Decimal
+  status    CardStatus
+  address   Address     @relation(fields: [addressId], references: [id])
+  addressId String
+  creator   User        @relation(fields: [createdBy], references: [uid])
+  createdBy String
+  agency    Agency      @relation(fields: [agencyId], references: [id])
+  agencyId  String
+  childCard ChildCard?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  deletedAt DateTime?
+}
+
+model ChildCard {
+  card      Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  cardId    String   @id
+  birthday  DateTime
+  gender    Gender
+  firstName String
+  lastName  String
+  interest  String
+  bio       String
+}
+
+model CardImage {
+  id          String    @id @default(uuid())
+  card        Card      @relation(fields: [cardId], references: [id])
+  cardId      String
+  path        String
+  isMainImage Boolean
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
 }
 
 enum Role {
   DONOR
   ADMIN
+}
+
+enum CardType {
+  CHILD
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum CardStatus {
+  DRAFT
+  PUBLISHED
+  DONATED
 }

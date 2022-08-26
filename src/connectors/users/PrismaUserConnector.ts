@@ -5,7 +5,7 @@ import {User, UserCreateInput, UserUpdateInput} from "./entities/User";
 import {EntryAlreadyExistsError} from "../../core/errors/EntryAlreadyExistsError";
 
 @injectable()
-export  class PostgresUserConnector implements UserConnector{
+export  class PrismaUserConnector implements UserConnector{
 
 	private prisma: PrismaClient;
 	constructor() {

@@ -1,7 +1,7 @@
 import {inject, injectable} from "inversify";
-import {UserConnector} from "../../connectors/users/UserConnector";
-import {TYPES} from "../../core/types";
-import {User, UserCreateInput, UserUpdateInput} from "../../connectors/users/entities/User";
+import {UserConnector} from "../connectors/users/UserConnector";
+import {TYPES} from "../core/types";
+import {User, UserCreateInput, UserUpdateInput} from "../connectors/users/entities/User";
 
 @injectable()
 export class UserService {
