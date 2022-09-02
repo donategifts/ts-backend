@@ -1,4 +1,4 @@
-import { User, UserCreateInput, UserUpdateInput } from "./entities/User";
+import {User, UserCreateInput, UserUpdateInput} from "./entities/User";
 
 export interface UserConnector {
   getByEmail(email: string): Promise<User | null>;

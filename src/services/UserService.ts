@@ -1,10 +1,11 @@
-import { inject, injectable } from "inversify";
-import { UserConnector } from "../connectors/users/UserConnector";
-import { TYPES } from "../core/types";
-import { User, UserCreateInput, UserUpdateInput } from "../connectors/users/entities/User";
+import {inject, injectable} from "inversify";
+import {UserConnector} from "../connectors/users/UserConnector";
+import {TYPES} from "../core/types";
+import {User, UserCreateInput, UserUpdateInput} from "../connectors/users/entities/User";
 
 @injectable()
 export class UserService {
+
   constructor(@inject(TYPES.UserConnectorType) private readonly connector: UserConnector) {}
 
   async getByEmail(email: string): Promise<User | null> {
@@ -18,4 +19,5 @@ export class UserService {
   async update(user: UserUpdateInput): Promise<User> {
     return this.connector.update(user);
   }
+
 }

@@ -1,10 +1,11 @@
-import { inject, injectable } from "inversify";
-import { TYPES } from "../core/types";
-import { AgencyConnector } from "../connectors/agencies/AgencyConnector";
-import { Agency, AgencyCreateRequest } from "../connectors/agencies/entities/Agency";
+import {inject, injectable} from "inversify";
+import {TYPES} from "../core/types";
+import {AgencyConnector} from "../connectors/agencies/AgencyConnector";
+import {Agency, AgencyCreateRequest} from "../connectors/agencies/entities/Agency";
 
 @injectable()
 export class AgencyService {
+
   constructor(@inject(TYPES.AgencyConnectorType) private readonly connector: AgencyConnector) {}
 
   async getByCreatorId(id: string): Promise<Agency | null> {
@@ -16,6 +17,7 @@ export class AgencyService {
   }
 
   async verify(id: string): Promise<Agency> {
-    return this.connector.update(id, { isVerified: true });
+    return this.connector.update(id, {isVerified: true});
   }
+
 }

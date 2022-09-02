@@ -1,2 +1,2 @@
-import { Role } from "@prisma/client";
+import {Role} from "@prisma/client";
 export const UserRoles = Role;

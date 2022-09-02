@@ -1,4 +1,5 @@
 export class EntryNotFoundError extends Error {
+
   public status: number;
 
   constructor(id: string) {
@@ -6,4 +7,5 @@ export class EntryNotFoundError extends Error {
     this.message = `Entry with id ${id} does not exist`;
     this.status = 404;
   }
+
 }

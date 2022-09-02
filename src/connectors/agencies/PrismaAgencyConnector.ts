@@ -1,19 +1,17 @@
-import { Prisma, PrismaClient } from "@prisma/client";
-import { injectable } from "inversify";
-import { EntryNotFoundError } from "../../core/errors/EntryNotFoundError";
-import { Agency, AgencyCreateRequest } from "./entities/Agency";
-import { AgencyConnector } from "./AgencyConnector";
+import {inject, injectable} from "inversify";
+import {Prisma, PrismaClient} from "../../core/prismaContainer";
+import {EntryNotFoundError} from "../../core/errors/EntryNotFoundError";
+import {TYPES} from "../../core/types";
+import {Agency, AgencyCreateRequest} from "./entities/Agency";
+import {AgencyConnector} from "./AgencyConnector";
 
 @injectable()
 export class PrismaAgencyConnector implements AgencyConnector {
-  private prisma: PrismaClient;
 
-  constructor() {
-    this.prisma = new PrismaClient();
-  }
+  constructor(@inject(TYPES.PrismaClientType) private readonly prisma: PrismaClient) {}
 
   async create(agencyCreateRequest: AgencyCreateRequest): Promise<Agency> {
-    const { name, bio, createdBy, address, phone, website } = agencyCreateRequest;
+    const {name, bio, createdBy, address, phone, website} = agencyCreateRequest;
     return this.prisma.agency.create({
       data: {
         name,
@@ -21,7 +19,7 @@ export class PrismaAgencyConnector implements AgencyConnector {
         phone,
         website,
         creator: {
-          connect: { uid: createdBy },
+          connect: {uid: createdBy},
         },
         address: {
           create: {
@@ -39,14 +37,14 @@ export class PrismaAgencyConnector implements AgencyConnector {
 
   async getByCreatorId(id: string): Promise<Agency | null> {
     return this.prisma.agency.findFirst({
-      where: { createdBy: id },
+      where: {createdBy: id},
     });
   }
 
   async update(id: string, update: Partial<Agency>): Promise<Agency> {
     try {
       return await this.prisma.agency.update({
-        where: { id },
+        where: {id},
         data: update,
       });
     } catch (error) {
@@ -58,4 +56,5 @@ export class PrismaAgencyConnector implements AgencyConnector {
       throw error;
     }
   }
+
 }

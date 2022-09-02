@@ -1,5 +1,5 @@
-import { Joi, Segments } from "celebrate";
-import { validateAddress } from "./AddressValidator";
+import {Joi, Segments} from "celebrate";
+import {validateAddress} from "./AddressValidator";
 
 export const validateCreateAgency = {
   [Segments.BODY]: Joi.object().keys({

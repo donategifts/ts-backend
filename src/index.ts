@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { server } from "./core/server";
+import {server} from "./core/server";
 
 const port = 3000;
 

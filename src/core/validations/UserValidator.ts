@@ -1,6 +1,6 @@
-import { Joi, Segments } from "celebrate";
-import { UserRoles } from "../../connectors/users/entities/UserRoles";
-import { validateAddress } from "./AddressValidator";
+import {Joi, Segments} from "celebrate";
+import {UserRoles} from "../../connectors/users/entities/UserRoles";
+import {validateAddress} from "./AddressValidator";
 
 export const validateCreateUser = {
   [Segments.BODY]: Joi.object().keys({

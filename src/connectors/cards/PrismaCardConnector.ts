@@ -1,16 +1,14 @@
-import { injectable } from "inversify";
-import { Prisma, PrismaClient } from "@prisma/client";
-import { EntryAlreadyExistsError } from "../../core/errors/EntryAlreadyExistsError";
-import { CardConnector } from "./CardConnector";
-import { Card, CardCreateInput } from "./entities/Card";
+import {inject, injectable} from "inversify";
+import {Prisma, PrismaClient} from "../../core/prismaContainer";
+import {EntryAlreadyExistsError} from "../../core/errors/EntryAlreadyExistsError";
+import {TYPES} from "../../core/types";
+import {CardConnector} from "./CardConnector";
+import {Card, CardCreateInput} from "./entities/Card";
 
 @injectable()
 export class PrismaCardConnector implements CardConnector {
-  private prisma: PrismaClient;
 
-  constructor() {
-    this.prisma = new PrismaClient();
-  }
+  constructor(@inject(TYPES.PrismaClientType) private readonly prisma: PrismaClient) {}
 
   async create(card: CardCreateInput): Promise<Card> {
     try {
@@ -27,4 +25,5 @@ export class PrismaCardConnector implements CardConnector {
       throw error;
     }
   }
+
 }

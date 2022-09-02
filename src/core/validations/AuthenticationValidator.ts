@@ -1,6 +1,6 @@
 import * as firebaseAdmin from "firebase-admin";
 import * as express from "express";
-import { Joi, Segments } from "celebrate";
+import {Joi, Segments} from "celebrate";
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.applicationDefault(),
@@ -24,5 +24,5 @@ export const validateAuthHeader = {
     .keys({
       authorization: Joi.string().required(),
     })
-    .options({ allowUnknown: true }),
+    .options({allowUnknown: true}),
 };

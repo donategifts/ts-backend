@@ -1,179 +1,64 @@
 {
-	"root": true,
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"sourceType": "module",
-		"project": "./tsconfig.json"
-	},
-	"plugins": [
-		"prettier",
-		"@typescript-eslint",
-		"unicorn",
-		"import",
-		"unused-imports"
-	],
-	"globals": {
-		"io": true
-	},
-	"rules": {
-		"prettier/prettier": "error",
-		"indent": [
-			"error",
-			2,
-			{
-				"SwitchCase": 1
-			}
-		],
-		"max-len": "off",
-		"no-debugger": "warn",
-		"no-console": [
-			"warn",
-			{
-				"allow": [
-					"warn",
-					"error"
-				]
-			}
-		],
-		"prefer-const": [
-			"error",
-			{
-				"destructuring": "any",
-				"ignoreReadBeforeAssign": false
-			}
-		],
-		"no-lonely-if": "error",
-		"no-underscore-dangle": "off",
-		"prefer-object-spread": "error",
-		"no-plusplus": "off",
-		"no-param-reassign": "warn",
-		"no-throw-literal": "warn",
-		"dot-notation": "error",
-		"no-var": "error",
-		"object-shorthand": "error",
-		"no-useless-rename": "error",
-		"no-restricted-syntax": [
-			"error",
-			"ForInStatement",
-			"LabeledStatement",
-			"WithStatement"
-		],
-		"quotes": ["error", "double"],
-		"curly": "error",
-		"semi": "error",
-		"keyword-spacing": ["warn"],
-		"key-spacing": ["warn"],
-		"lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
-		"space-infix-ops": "error",
-		"comma-spacing": ["error", { "before": false, "after": true }],
-		"no-multiple-empty-lines": ["error", {"max": 1}],
-		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
-		"object-curly-spacing": "off",
-		"require-atomic-updates": "off",
-		"no-await-in-loop": "off",
-		"class-methods-use-this": "off",
-		"no-useless-constructor": "off",
-		"eol-last": "off",
-		"no-case-declarations": "off",
-		"@typescript-eslint/no-useless-constructor": "error",
-		"@typescript-eslint/no-inferrable-types": "off",
-		"@typescript-eslint/promise-function-async": [
-			"warn",
-			{
-				"checkArrowFunctions": false
-			}
-		],
-		"@typescript-eslint/ban-types": "off", // Enable after we replaced all occurences of "object"
-		"@typescript-eslint/member-ordering": ["warn", {"default":  ["field", "constructor", "public-method", "private-method"]}],
-		"@typescript-eslint/ban-ts-comment": "off",
-		"@typescript-eslint/no-explicit-any": "off", // Enable after we used unknown (or a real type) everywhere
-		"@typescript-eslint/explicit-function-return-type": ["warn", {
-			"allowExpressions": true,
-			"allowTypedFunctionExpressions": true,
-			"allowHigherOrderFunctions": true,
-			"allowConciseArrowFunctionExpressionsStartingWithVoid": true
-		}], // Enable after we used unknown (or a real type) everywhere
-		"@typescript-eslint/explicit-module-boundary-types": "off", // Another case of any,
-		"@typescript-eslint/type-annotation-spacing": ["warn"], // Another case of any,
-		"@typescript-eslint/member-delimiter-style": ["error"],
-		"@typescript-eslint/no-var-requires": "off", // So far we need it for our lazy-loading logic
-		"@typescript-eslint/no-unused-vars": ["error", {
-			"varsIgnorePattern": "^_",
-			"argsIgnorePattern": "^_"
-		}],
-		"@typescript-eslint/no-empty-interface": ["warn"],
-		"import/prefer-default-export": "off",
-		"import/order": "error",
-		"import/first": "error",
-		"import/no-mutable-exports": "error",
-		"import/extensions": [
-			"error",
-			"ignorePackages",
-			{
-				"js": "never",
-				"mjs": "never",
-				"jsx": "never",
-				"ts": "never",
-				"tsx": "never"
-			}
-		],
-		"import/no-unresolved": [
-			2,
-			{
-				"caseSensitive": true
-			}
-		],
-		"unicorn/error-message": "error",
-		"unicorn/escape-case": "error",
-		"unicorn/no-array-instanceof": "error",
-		"unicorn/no-new-buffer": "error",
-		"unicorn/no-unsafe-regex": "off",
-		"unicorn/number-literal-case": "error",
-		"unicorn/prefer-exponentiation-operator": "error",
-		"unicorn/prefer-includes": "error",
-		"unicorn/prefer-starts-ends-with": "error",
-		"unicorn/prefer-text-content": "error",
-		"unicorn/prefer-type-error": "error",
-		"unicorn/throw-new-error": "error",
-		"no-unused-vars": "off",
-		"unused-imports/no-unused-imports": "error",
-		"unused-imports/no-unused-vars": [
-			"warn",
-			{
-				"vars": "all",
-				"varsIgnorePattern": "^_",
-				"args": "after-used",
-				"argsIgnorePattern": "^_"
-			}
-		],
-		"react/jsx-filename-extension": "off"
-	},
-	"env": {
-		"jest": true,
-		"mocha": false,
-		"browser": false,
-		"node": true
-	},
-	"extends": [
-		"airbnb-typescript",
-		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended",
-		"prettier"
-	],
-	"settings": {
-		"import/resolver": {
-			"node": {
-				"extensions": [
-					".js",
-					".jsx",
-					".ts",
-					".tsx"
-				]
-			}
-		},
-		"import/ignore": [
-			"node_modules",
-			"\\.(coffee|scss|css|less|hbs|svg|json)$"
-		]
-	}
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      2,
+      {
+      "SwitchCase": 1
+      }
+    ],
+    "quotes": ["error", "double"],
+    "curly": "error",
+    "semi": "error",
+    "keyword-spacing": ["warn"],
+    "key-spacing": ["warn"],
+    "padded-blocks": ["warn", {"blocks": "never", "classes":  "always"}],
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+    "space-infix-ops": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "no-multiple-empty-lines": ["error", {"max": 1}],
+    "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+    "object-curly-spacing": "error",
+    "@typescript-eslint/promise-function-async": [
+      "warn",
+      {
+      "checkArrowFunctions": false
+      }
+    ],
+    "@typescript-eslint/ban-types": "off", // Enable after we replaced all occurences of "object"
+    "@typescript-eslint/member-ordering": ["warn", {"default":  ["field", "constructor", "public-method", "private-method"]}],
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off", // Enable after we used unknown (or a real type) everywhere
+    "@typescript-eslint/explicit-function-return-type": ["warn", {
+      "allowExpressions": true,
+      "allowTypedFunctionExpressions": true,
+      "allowHigherOrderFunctions": true,
+      "allowConciseArrowFunctionExpressionsStartingWithVoid": true
+    }], // Enable after we used unknown (or a real type) everywhere
+    "@typescript-eslint/explicit-module-boundary-types": "off", // Another case of any,
+    "@typescript-eslint/type-annotation-spacing": ["warn"], // Another case of any,
+    "@typescript-eslint/member-delimiter-style": ["error"],
+    "@typescript-eslint/no-var-requires": "off", // So far we need it for our lazy-loading logic
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "varsIgnorePattern": "^_",
+      "argsIgnorePattern": "^_"
+    }]
+  },
+  "env": {
+    "mocha": true,
+    "node": true
+  }
 }
