@@ -1,5 +1,7 @@
 node_modules
+dist/
+.idea/
+yarn-error.log
+.eslintcache
 # Keep environment variables out of version control
 .env
-/dist/
-/.idea/

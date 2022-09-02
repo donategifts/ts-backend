@@ -1,13 +1,12 @@
-import {injectable} from "inversify";
-import {AddressConnector} from "../AddressConnector";
-import {PrismaClient} from "@prisma/client";
+import { injectable } from "inversify";
+import { PrismaClient } from "@prisma/client";
+import { AddressConnector } from "../AddressConnector";
 
 @injectable()
 export class PrismaAddressConnector implements AddressConnector {
+  private prisma: PrismaClient;
 
-	private prisma: PrismaClient;
-	constructor() {
-		this.prisma = new PrismaClient();
-	}
-
+  constructor() {
+    this.prisma = new PrismaClient();
+  }
 }

@@ -1,3 +1,1 @@
-export interface AddressConnector {
-
-}
+export interface AddressConnector {}
