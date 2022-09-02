@@ -4,5 +4,5 @@ import { AddressConnector } from "../connectors/addresses/AddressConnector";
 
 @injectable()
 export class AddressService {
-  constructor(@inject(TYPES.AddressConnectorType) private readonly connector: AddressConnector) {}
+	constructor(@inject(TYPES.AddressConnectorType) private readonly connector: AddressConnector) {}
 }

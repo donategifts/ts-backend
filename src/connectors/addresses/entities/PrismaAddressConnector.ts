@@ -4,9 +4,9 @@ import { AddressConnector } from "../AddressConnector";
 
 @injectable()
 export class PrismaAddressConnector implements AddressConnector {
-  private prisma: PrismaClient;
+    private prisma: PrismaClient;
 
-  constructor() {
-    this.prisma = new PrismaClient();
-  }
+    constructor() {
+        this.prisma = new PrismaClient();
+    }
 }

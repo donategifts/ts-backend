@@ -16,14 +16,13 @@
 		"io": true
 	},
 	"rules": {
-		"prettier/prettier": "error",
-		"indent": [
+		"prettier/prettier": [
 			"error",
-			2,
 			{
-				"SwitchCase": 1
+			  "tabWidth": 4
 			}
 		],
+		"indent": "off",
 		"max-len": "off",
 		"no-debugger": "warn",
 		"no-console": [
