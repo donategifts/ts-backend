@@ -3,7 +3,7 @@ import { InversifyExpressServer } from "inversify-express-utils";
 import * as cors from "cors";
 import * as express from "express";
 import { errors } from "celebrate";
-import { container } from "./DefaultContainer";
+import { container } from "./defaultContainer";
 import { EntryAlreadyExistsError } from "./errors/EntryAlreadyExistsError";
 import { EntryNotFoundError } from "./errors/EntryNotFoundError";
 

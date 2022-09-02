@@ -1,16 +1,13 @@
-import { Prisma, PrismaClient } from "@prisma/client";
-import { injectable } from "inversify";
+import { inject, injectable } from "inversify";
+import { Prisma, PrismaClient } from "../../core/prismaContainer";
 import { EntryNotFoundError } from "../../core/errors/EntryNotFoundError";
+import { TYPES } from "../../core/types";
 import { Agency, AgencyCreateRequest } from "./entities/Agency";
 import { AgencyConnector } from "./AgencyConnector";
 
 @injectable()
 export class PrismaAgencyConnector implements AgencyConnector {
-	private prisma: PrismaClient;
-
-	constructor() {
-		this.prisma = new PrismaClient();
-	}
+	constructor(@inject(TYPES.PrismaClientType) private readonly prisma: PrismaClient) {}
 
 	async create(agencyCreateRequest: AgencyCreateRequest): Promise<Agency> {
 		const { name, bio, createdBy, address, phone, website } = agencyCreateRequest;

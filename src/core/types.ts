@@ -1,4 +1,5 @@
 export const TYPES = {
+	PrismaClientType: Symbol.for("PrismaClient"),
 	UserServiceType: Symbol.for("UserService"),
 	UserConnectorType: Symbol.for("UserConnector"),
 	AgencyServiceType: Symbol.for("AgencyService"),

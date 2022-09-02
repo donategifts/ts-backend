@@ -1,16 +1,13 @@
-import { injectable } from "inversify";
-import { Prisma, PrismaClient } from "@prisma/client";
+import { inject, injectable } from "inversify";
+import { Prisma, PrismaClient } from "../../core/prismaContainer";
 import { EntryAlreadyExistsError } from "../../core/errors/EntryAlreadyExistsError";
+import { TYPES } from "../../core/types";
 import { User, UserCreateInput, UserUpdateInput } from "./entities/User";
 import { UserConnector } from "./UserConnector";
 
 @injectable()
 export class PrismaUserConnector implements UserConnector {
-	private prisma: PrismaClient;
-
-	constructor() {
-		this.prisma = new PrismaClient();
-	}
+	constructor(@inject(TYPES.PrismaClientType) private readonly prisma: PrismaClient) {}
 
 	async getByEmail(email: string): Promise<User | null> {
 		return this.prisma.user.findUnique({
