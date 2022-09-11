@@ -10,7 +10,9 @@ import {EntryNotFoundError} from "./errors/EntryNotFoundError";
 export const server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {
-	app.use(cors());
+	if (process.env.NODE_ENV === "development") {
+		app.use(cors());
+	}
 	app.use(bodyParser.urlencoded({extended: true}));
 	app.use(bodyParser.json());
 });
