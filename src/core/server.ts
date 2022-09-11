@@ -1,16 +1,18 @@
 import * as bodyParser from "body-parser";
 import {InversifyExpressServer} from "inversify-express-utils";
+import {container} from "./defaultContainer";
 import * as cors from "cors";
 import * as express from "express";
 import {errors} from "celebrate";
-import {container} from "./defaultContainer";
 import {EntryAlreadyExistsError} from "./errors/EntryAlreadyExistsError";
 import {EntryNotFoundError} from "./errors/EntryNotFoundError";
 
 export const server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {
-  app.use(cors());
+  if (process.env.NODE_ENV === "development") {
+    app.use(cors());
+  }
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
 });

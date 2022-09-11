@@ -1,5 +1,5 @@
-import {Prisma, User as PrismaUser} from "@prisma/client";
+import {DBUser, DBClientType} from "../../../core/dbClient";
 
-export type User = PrismaUser;
-export type UserCreateInput = Prisma.UserCreateInput;
-export type UserUpdateInput = Prisma.UserUpdateInput;
+export type User = DBUser;
+export type UserCreateInput = DBClientType.UserCreateInput;
+export type UserUpdateInput = DBClientType.UserUpdateInput;

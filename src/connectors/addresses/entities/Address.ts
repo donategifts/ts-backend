@@ -1,3 +1,3 @@
-import {Address as PrismaAddress} from "@prisma/client";
+import {DBAddress} from "../../../core/dbClient";
 
-export type Address = PrismaAddress;
+export type Address = DBAddress;

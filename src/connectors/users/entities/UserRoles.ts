@@ -1,2 +1,3 @@
-import {Role} from "@prisma/client";
-export const UserRoles = Role;
+import {DBRole} from "../../../core/dbClient";
+
+export const UserRoles = DBRole;
