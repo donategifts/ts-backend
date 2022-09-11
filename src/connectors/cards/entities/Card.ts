@@ -1,5 +1,5 @@
-import {Prisma, Card as PrismaCard} from "@prisma/client";
+import {DBCard, DBClientType} from "../../../core/dbClient";
 
-export type Card = PrismaCard
-export type CardCreateInput = Prisma.CardCreateInput
-export type CardUpdateInput = Prisma.CardUpdateInput
+export type Card = DBCard;
+export type CardCreateInput = DBClientType.CardCreateInput;
+export type CardUpdateInput = DBClientType.CardUpdateInput;

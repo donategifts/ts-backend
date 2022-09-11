@@ -1,4 +1,3 @@
-import {Prisma, Address as PrismaAddress} from "@prisma/client";
+import {DBAddress} from "../../../core/dbClient";
 
-export type Address = PrismaAddress
-export type AddressCreateInput = Prisma.AddressCreateInput
+export type Address = DBAddress;

@@ -6,20 +6,18 @@ import {Agency, AgencyCreateRequest} from "../connectors/agencies/entities/Agenc
 @injectable()
 export class AgencyService {
 
-	constructor(
-		@inject(TYPES.AgencyConnectorType) private readonly connector: AgencyConnector
-	) {}
+  constructor(@inject(TYPES.AgencyConnectorType) private readonly connector: AgencyConnector) {}
 
-	async getByCreatorId(id: string): Promise<Agency | null> {
-		return this.connector.getByCreatorId(id);
-	}
+  async getByCreatorId(id: string): Promise<Agency | null> {
+    return this.connector.getByCreatorId(id);
+  }
 
-	async create(agencyCreateRequest: AgencyCreateRequest): Promise<Agency> {
-		return this.connector.create(agencyCreateRequest);
-	}
+  async create(agencyCreateRequest: AgencyCreateRequest): Promise<Agency> {
+    return this.connector.create(agencyCreateRequest);
+  }
 
-	verify(id: string) {
-		return this.connector.update(id, {isVerified: true});
+  async verify(id: string): Promise<Agency> {
+    return this.connector.update(id, {isVerified: true});
+  }
 
-	}
 }
