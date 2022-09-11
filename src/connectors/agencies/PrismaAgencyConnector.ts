@@ -2,8 +2,7 @@ import {injectable} from "inversify";
 import {EntryNotFoundError} from "../../core/errors/EntryNotFoundError";
 import {Agency, AgencyCreateRequest} from "./entities/Agency";
 import {AgencyConnector} from "./AgencyConnector";
-import {DBClientType} from "../../core/dbClient";
-import {DBClient} from "../../core/dbClient";
+import {DBClient, DBClientType} from "../../core/dbClient";
 
 @injectable()
 export class PrismaAgencyConnector implements AgencyConnector {
