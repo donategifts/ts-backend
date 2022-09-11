@@ -6,7 +6,6 @@ import {Address} from "./entities/Address";
 export class PrismaAddressConnector implements AddressConnector {
 
   async update(_id: string, _update: Partial<Address>): Promise<Address> {
-    // TODO: implement
     return Promise.resolve<Address>({} as Address);
   }
 
