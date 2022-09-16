@@ -12,7 +12,8 @@ RUN yarn
 # Bundle app source
 COPY . /app
 RUN npx prisma generate --schema=./prisma/schema.prisma
+
 RUN yarn build
 
 EXPOSE 8080
-CMD yarn run prisma:migrate-deploy; yarn start
+CMD ["yarn", "deploy:start"]
