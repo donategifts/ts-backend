@@ -13,6 +13,7 @@
     "prisma:generate": "npx prisma generate",
     "prisma:introspect": "npx prisma introspect",
     "prisma:migrate-dev": "npx prisma migrate dev --name ",
+    "prisma:migrate-deploy": "npx prisma migrate deploy",
     "prepare": "husky install"
   },
   "devDependencies": {
