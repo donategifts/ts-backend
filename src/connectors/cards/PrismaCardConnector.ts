@@ -10,7 +10,7 @@ export class PrismaCardConnector implements CardConnector {
 
   async create(creatorId: string, agencyId: string, addressId: string, cardCreateInput: ChildCardCreateInput): Promise<Card> {
     try {
-      const images = cardCreateInput.images as CardImageCreateInput|| [];
+      const images = cardCreateInput.images as CardImageCreateInput || [];
       return await DBClient.card.create({
         data: {
           type: cardCreateInput.type,
