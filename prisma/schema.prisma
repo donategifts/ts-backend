@@ -30,8 +30,7 @@ model Agency {
   website    String?
   creator    User      @relation(fields: [createdBy], references: [uid])
   createdBy  String
-  address    Address   @relation(fields: [addressId], references: [id])
-  addressId  String
+  Adress    Address[]
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   deletedAt  DateTime?
@@ -50,8 +49,9 @@ model Address {
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
   deletedAt         DateTime?
-  Agency            Agency[]
-  Card              Card[]
+  agency    Agency   @relation(fields: [agencyId], references: [id])
+  agencyId      String
+  card    Card[] @nullable
 }
 
 model Card {

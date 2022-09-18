@@ -8,5 +8,5 @@ export type AgencyCreateRequest = {
   createdBy: string;
   phone: string;
   website?: string;
-  address: Address;
+  address?: Address;
 };

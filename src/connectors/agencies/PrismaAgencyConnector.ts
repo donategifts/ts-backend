@@ -8,7 +8,7 @@ import {DBClient, DBClientType} from "../../core/dbClient";
 export class PrismaAgencyConnector implements AgencyConnector {
 
   async create(agencyCreateRequest: AgencyCreateRequest): Promise<Agency> {
-    const {name, bio, createdBy, address, phone, website} = agencyCreateRequest;
+    const {name, bio, createdBy, phone, website} = agencyCreateRequest;
     return DBClient.agency.create({
       data: {
         name,
@@ -17,16 +17,6 @@ export class PrismaAgencyConnector implements AgencyConnector {
         website,
         creator: {
           connect: {uid: createdBy},
-        },
-        address: {
-          create: {
-            street: address.street,
-            streetNumber: address.streetNumber,
-            zipcode: address.zipcode,
-            city: address.city,
-            country: address.country,
-            state: address.state,
-          },
         },
       },
     });

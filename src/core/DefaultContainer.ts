@@ -4,11 +4,13 @@ import "../controllers/UserController";
 import "../controllers/AgencyController";
 import "../controllers/CardController";
 import "../controllers/IndexController";
+import "../controllers/AddressController";
 
 // services
 import {UserService} from "../services/UserService";
 import {AgencyService} from "../services/AgencyService";
 import {CardService} from "../services/CardService";
+import {AddressService} from "../services/AddressService";
 
 // connector types
 import {UserConnector} from "../connectors/users/UserConnector";
@@ -29,6 +31,7 @@ export const container = new Container();
 container.bind<UserService>(TYPES.UserServiceType).to(UserService);
 container.bind<AgencyService>(TYPES.AgencyServiceType).to(AgencyService);
 container.bind<CardService>(TYPES.CardServiceType).to(CardService);
+container.bind<AddressService>(TYPES.AddressServiceType).to(AddressService);
 
 container.bind<UserConnector>(TYPES.UserConnectorType).to(PrismaUserConnector);
 container.bind<AgencyConnector>(TYPES.AgencyConnectorType).to(PrismaAgencyConnector);
