@@ -17,8 +17,8 @@ model User {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
-  Agency    Agency[]
-  Card      Card[]
+  agencies    Agency[]
+  cards      Card[]
 }
 
 model Agency {
@@ -30,15 +30,17 @@ model Agency {
   website    String?
   creator    User      @relation(fields: [createdBy], references: [uid])
   createdBy  String
-  Adress    Address[]
+  addresses    Address[]
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   deletedAt  DateTime?
-  Card       Card[]
+  cards       Card[]
 }
 
 model Address {
   id                String    @id @default(uuid())
+  firstName String
+  lastName String
   street            String
   streetNumber      String
   additionalAddress String?
@@ -51,7 +53,7 @@ model Address {
   deletedAt         DateTime?
   agency    Agency   @relation(fields: [agencyId], references: [id])
   agencyId      String
-  card    Card[] @nullable
+  card    Card[]
 }
 
 model Card {
@@ -76,12 +78,12 @@ model Card {
 model ChildCard {
   card      Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
   cardId    String   @id
-  birthday  DateTime
+  birthday  DateTime?
   gender    Gender
   firstName String
-  lastName  String
-  interest  String
-  bio       String
+  lastName  String?
+  interest  String?
+  bio       String?
 }
 
 model CardImage {

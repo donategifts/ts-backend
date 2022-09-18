@@ -11,4 +11,6 @@ export type AddressCreateRequest = {
   state: string
   agencyId: string
   cardId?: string
+  firstName: string,
+  lastName: string
 }

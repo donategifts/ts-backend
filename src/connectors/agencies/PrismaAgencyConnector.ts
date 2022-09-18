@@ -18,7 +18,13 @@ export class PrismaAgencyConnector implements AgencyConnector {
         creator: {
           connect: {uid: createdBy},
         },
+        addresses: {
+          create: agencyCreateRequest.address
+        }
       },
+      include: {
+        addresses: true
+      }
     });
   }
 
