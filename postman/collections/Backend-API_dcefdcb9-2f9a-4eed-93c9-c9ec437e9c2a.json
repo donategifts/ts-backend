@@ -16,11 +16,19 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
 								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token-Type",
+								"value": "user",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -30,81 +38,18 @@
 							],
 							"path": [
 								"user"
+							],
+							"query": [
+								{
+									"key": "X-Auth-Token-Type",
+									"value": "user",
+									"type": "text",
+									"disabled": true
+								}
 							]
 						}
 					},
-					"response": [
-						{
-							"id": "67ac520f-0393-4bf7-b48c-dc50b1b4577e",
-							"name": "the logged in user or nothing if no user exists",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: apikey",
-										"key": "authorization",
-										"value": "<API Key>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/user",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"user"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/SpacecraftId not found in the OpenAPI spec\"\n  },\n  \"name\": \"sed laborum\",\n  \"type\": \"probe\",\n  \"description\": \"non aute laboris\"\n}"
-						},
-						{
-							"id": "d62dae59-6b45-4b05-8ba4-30d1f9683e64",
-							"name": "Unexpected error",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: apikey",
-										"key": "authorization",
-										"value": "<API Key>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/user",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"user"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n  \"message\": \"aute mollit sed\"\n}"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "create user with firebase data",
@@ -122,6 +67,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token-Type",
+								"value": "user",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -143,96 +93,7 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"id": "a3ba385b-91f5-4564-90b4-4945ba728339",
-							"name": "the logged in user",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: apikey",
-										"key": "authorization",
-										"value": "<API Key>"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"firstName\": \"fugiat\",\n  \"lastName\": \"Duis te\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/user",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"user"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/SpacecraftId not found in the OpenAPI spec\"\n  },\n  \"name\": \"sed laborum\",\n  \"type\": \"probe\",\n  \"description\": \"non aute laboris\"\n}"
-						},
-						{
-							"id": "1d7992ed-5bd0-46fd-b973-04e0036900f5",
-							"name": "Unexpected error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: apikey",
-										"key": "authorization",
-										"value": "<API Key>"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"firstName\": \"fugiat\",\n  \"lastName\": \"Duis te\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/user",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"user"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n  \"message\": \"aute mollit sed\"\n}"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "update user",
@@ -250,6 +111,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token-Type",
+								"value": "user",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -271,126 +137,42 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"id": "d70b32cd-4836-449b-9688-e94a0115db7e",
-							"name": "the logged in user",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: apikey",
-										"key": "authorization",
-										"value": "<API Key>"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"firstName\": \"aliquip aliqua sit nisi\",\n  \"lastName\": \"ullamco culpa adipisicing\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/user",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"user"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/SpacecraftId not found in the OpenAPI spec\"\n  },\n  \"name\": \"sed laborum\",\n  \"type\": \"probe\",\n  \"description\": \"non aute laboris\"\n}"
-						},
-						{
-							"id": "5bef0135-c857-4f87-8321-0891a082f8ab",
-							"name": "Unexpected error",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: apikey",
-										"key": "authorization",
-										"value": "<API Key>"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"firstName\": \"aliquip aliqua sit nisi\",\n  \"lastName\": \"ullamco culpa adipisicing\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/user",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"user"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n  \"message\": \"aute mollit sed\"\n}"
-						}
-					]
+					"response": []
 				}
 			],
-			"id": "47ca4613-a2a5-4c55-aa9a-65a66bdd375d"
+			"id": "47ca4613-a2a5-4c55-aa9a-65a66bdd375d",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1cb3d835-ba11-49c5-bfb3-0cd6283b4750",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "32c2e6d1-49c1-4351-b6e9-84393e97f05f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	],
-	"auth": {
-		"type": "apikey",
-		"apikey": [
-			{
-				"key": "key",
-				"value": "authorization",
-				"type": "string"
-			},
-			{
-				"key": "value",
-				"value": "<API Key>",
-				"type": "string"
-			},
-			{
-				"key": "in",
-				"value": "header",
-				"type": "string"
-			}
-		]
-	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "56a49eab-4787-49d8-b3a2-2378a51888e4",
+				"id": "76b00268-eb64-4e4b-8832-c672a1355c2a",
 				"type": "text/javascript",
 				"exec": [
 					"const { Header, Response, HeaderList } = require('postman-collection');",
@@ -622,7 +404,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f0eaa854-836a-4f68-a5ae-ea73db548ea4",
+				"id": "8c6d6c9e-6cd2-46b8-8c68-251b5d63d984",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -632,27 +414,27 @@
 	],
 	"variable": [
 		{
-			"id": "90ef892a-4ff7-4164-aab4-6e486cd3365d",
+			"id": "6d915e0d-ae6d-4d60-9e80-79c753b6f325",
 			"key": "baseUrl",
 			"value": "https://ts-backend-dev-vbamtom7tq-uc.a.run.app/",
 			"type": "string"
 		},
 		{
-			"id": "9af8d9fc-774e-429e-b827-69bc08db37f4",
+			"id": "d2b8c6e2-cce2-47ca-8bcd-f465d1d32e58",
 			"key": "firebase_apiKey",
-			"value": "AIzaSyDfSio8rEfy9QrmZIiQlrJITYe8xfLvLAY",
+			"value": "AIzaSyDi8k1iJnOsousb6hqBhA6Qf7fNN0dOoxs",
 			"type": "string"
 		},
 		{
-			"id": "ae473271-95fa-4415-9b63-5deec18b11fe",
+			"id": "04672e38-9ef0-4476-9e57-ae0c8a21a0cf",
 			"key": "firebase_test_user",
-			"value": "null",
+			"value": "patric+1@donate-gifts.com",
 			"type": "string"
 		},
 		{
-			"id": "260c14f3-34de-4d38-95ee-b10c72881201",
+			"id": "70e56042-33c2-4f78-86c3-6ea5c68f2f01",
 			"key": "firebase_test_password",
-			"value": "null",
+			"value": "HullaBulla",
 			"type": "string"
 		}
 	]
