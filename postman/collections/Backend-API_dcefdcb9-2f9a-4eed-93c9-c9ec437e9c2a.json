@@ -172,7 +172,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "76b00268-eb64-4e4b-8832-c672a1355c2a",
+				"id": "7e35420b-d0af-4782-9a66-0a5f26bed418",
 				"type": "text/javascript",
 				"exec": [
 					"const { Header, Response, HeaderList } = require('postman-collection');",
@@ -404,7 +404,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "8c6d6c9e-6cd2-46b8-8c68-251b5d63d984",
+				"id": "a963ec41-a75d-41d9-a5cc-f1d0e1e1230b",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -414,27 +414,27 @@
 	],
 	"variable": [
 		{
-			"id": "6d915e0d-ae6d-4d60-9e80-79c753b6f325",
+			"id": "ba7b73da-a4cb-4678-a4d7-78c6488849e7",
 			"key": "baseUrl",
-			"value": "https://ts-backend-dev-vbamtom7tq-uc.a.run.app/",
+			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d2b8c6e2-cce2-47ca-8bcd-f465d1d32e58",
+			"id": "10ed4632-0533-455e-8c77-bc409dcd8931",
 			"key": "firebase_apiKey",
-			"value": "AIzaSyDi8k1iJnOsousb6hqBhA6Qf7fNN0dOoxs",
+			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "04672e38-9ef0-4476-9e57-ae0c8a21a0cf",
+			"id": "e741c1cb-d85d-40a5-9984-d693a78ee303",
 			"key": "firebase_test_user",
-			"value": "patric+1@donate-gifts.com",
+			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "70e56042-33c2-4f78-86c3-6ea5c68f2f01",
+			"id": "86c7ff5b-8ea0-4695-bedf-901d2db904a6",
 			"key": "firebase_test_password",
-			"value": "HullaBulla",
+			"value": "",
 			"type": "string"
 		}
 	]
