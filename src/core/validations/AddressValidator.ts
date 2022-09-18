@@ -1,6 +1,8 @@
 import {Joi, Segments} from "celebrate";
 
 export const validateAddress = {
+  firstName: Joi.string().required(),
+  lastName: Joi.string().required(),
   street: Joi.string().required(),
   streetNumber: Joi.string().required(),
   additionalAddress: Joi.string().optional(),

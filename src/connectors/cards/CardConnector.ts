@@ -1,5 +1,6 @@
-import {Card, CardCreateInput} from "./entities/Card";
+import {Card} from "./entities/Card";
+import {ChildCardCreateInput} from "./entities/ChildCard";
 
 export interface CardConnector {
-  create(card: CardCreateInput): Promise<Card>;
+  create(creator: string, agencyId: string, addressId: string, card: ChildCardCreateInput): Promise<Card>;
 }

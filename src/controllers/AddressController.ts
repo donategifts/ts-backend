@@ -27,7 +27,7 @@ export class AddressController {
     @response() _res: express.Response,
     @next() _next: express.NextFunction,
   ): Promise<Address | null> {
-    const {street, streetNumber, additionalAddress, zipcode, city, country, state, agencyId} = req.body;
+    const {street, streetNumber, additionalAddress, zipcode, city, country, state, agencyId, firstName, lastName} = req.body;
     const addressCreateRequest: AddressCreateRequest = {
       street,
       streetNumber,
@@ -36,7 +36,9 @@ export class AddressController {
       city,
       country,
       state,
-      agencyId
+      agencyId,
+      firstName,
+      lastName,
     };
     return this.addressService.create(addressCreateRequest)
   }
