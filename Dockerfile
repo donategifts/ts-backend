@@ -7,7 +7,7 @@ WORKDIR /app
 # Install app dependencies
 COPY package.json /app
 COPY yarn.lock /app
-RUN yarn
+RUN yarn install --prod
 
 # Bundle app source
 COPY . /app

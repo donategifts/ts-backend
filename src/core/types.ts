@@ -4,6 +4,6 @@ export const TYPES = {
   AgencyServiceType: Symbol.for("AgencyService"),
   AgencyConnectorType: Symbol.for("AgencyConnector"),
   AddressConnectorType: Symbol.for("AddressConnector"),
-  CardControllerType: Symbol.for("CardController"),
+  CardServiceType: Symbol.for("CardService"),
   CardConnectorType: Symbol.for("CardConnector"),
 };

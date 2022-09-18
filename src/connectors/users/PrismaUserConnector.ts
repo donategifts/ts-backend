@@ -3,14 +3,20 @@ import {DBClient, DBClientType} from "../../core/dbClient";
 import {EntryAlreadyExistsError} from "../../core/errors/EntryAlreadyExistsError";
 import {User, UserCreateInput, UserUpdateInput} from "./entities/User";
 import {UserConnector} from "./UserConnector";
+import {EntryNotFoundError} from "../../core/errors/EntryNotFoundError";
 
 @injectable()
 export class PrismaUserConnector implements UserConnector {
 
   async getByEmail(email: string): Promise<User | null> {
-    return DBClient.user.findUnique({
-      where: {email},
-    });
+      const user = DBClient.user.findUnique({
+        where: {email},
+      });
+
+      if (!user) {
+        throw new EntryNotFoundError(email)
+      }
+      return user;
   }
 
   async create(user: UserCreateInput): Promise<User> {
