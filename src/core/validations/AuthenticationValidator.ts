@@ -1,6 +1,7 @@
 import * as firebaseAdmin from "firebase-admin";
 import * as express from "express";
 import {Joi, Segments} from "celebrate";
+import {AuthenticationError} from "../errors/AuthenticationError";
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.applicationDefault(),
@@ -14,7 +15,8 @@ export async function validateToken(
   try {
     req.user = await firebaseAdmin.auth().verifyIdToken(req.header("authorization")?.split(" ")[1] as string);
   } catch (error) {
-    throw new Error("Failed to validate token");
+    console.log(error)
+    next(new AuthenticationError());
   }
   next();
 }

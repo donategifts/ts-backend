@@ -1,17 +1,17 @@
 import {controller, httpPost, interfaces, next, request, response} from "inversify-express-utils";
-import {inject} from "inversify";
 import {celebrate} from "celebrate";
 import * as express from "express";
-import {TYPES} from "../core/types";
 import {CardService} from "../services/CardService";
 import {validateAuthHeader, validateToken} from "../core/validations/AuthenticationValidator";
 import {Card} from "../connectors/cards/entities/Card";
 import {validateCreateChildCard} from "../core/validations/CardValidator";
+import {inject} from "inversify";
+import {TYPES} from "../core/types";
 
 @controller("/card/child")
 export class CardController implements interfaces.Controller {
 
-  constructor(@inject(TYPES.CardControllerType) private cardService: CardService) {}
+  constructor(@inject(TYPES.CardServiceType) private cardService: CardService) {}
 
   @httpPost("/", celebrate({...validateAuthHeader, ...validateCreateChildCard}), validateToken)
   private async createCard(

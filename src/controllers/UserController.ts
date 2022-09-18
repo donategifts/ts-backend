@@ -19,13 +19,9 @@ export class UserController implements interfaces.Controller {
     @response() _res: express.Response,
     @next() _next: express.NextFunction,
   ): Promise<User> {
-    console.log("AHHH", req.user);
-
     const body: UserCreateInput = req.body;
     body.email = req.user.email;
     body.uid = req.user.uid;
-
-    console.log(body);
     return this.userService.create(body);
   }
 
@@ -35,8 +31,6 @@ export class UserController implements interfaces.Controller {
     @response() _res: express.Response,
     @next() _next: express.NextFunction,
   ): Promise<User> {
-    console.log("AHHH", req.user);
-
     const body: UserUpdateInput = req.body;
     body.email = req.user.email;
     console.log(body);
@@ -49,6 +43,7 @@ export class UserController implements interfaces.Controller {
     @response() _res: express.Response,
     @next() _next: express.NextFunction,
   ): Promise<User | null> {
+    console.log(req.user)
     return this.userService.getByEmail(req.user.email);
   }
 
