@@ -17,7 +17,12 @@ export class AgencyService {
   }
 
   async create(agencyCreateRequest: AgencyCreateRequest): Promise<Agency> {
-    return this.connector.create(agencyCreateRequest);
+    const agency = await this.connector.create(agencyCreateRequest);
+    if(agencyCreateRequest.address) {
+      agencyCreateRequest.address.agencyId = agency.id
+      await this.addressService.create(agencyCreateRequest.address);
+    }
+    return agency;
   }
 
   async verify(id: string): Promise<Agency> {
