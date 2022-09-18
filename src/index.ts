@@ -2,6 +2,6 @@ import "reflect-metadata";
 import {server} from "./core/server";
 
 const port = process.env.PORT || 3000;
-
-server.build().listen(parseInt(port as string), () => console.log(`Listen on http://localhost:${port}/`));
+const host = process.env.HOST || "localhost";
+server.build().listen(parseInt(port as string), host, () => console.log(`Listen on http://localhost:${port}/`));
 
