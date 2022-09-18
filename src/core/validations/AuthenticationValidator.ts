@@ -16,6 +16,7 @@ export async function validateToken(
     req.user = await firebaseAdmin.auth().verifyIdToken(req.header("authorization")?.split(" ")[1] as string);
   } catch (error) {
     console.log(error)
+    console.log(req.header("authorization"))
     next(new AuthenticationError());
   }
   next();
