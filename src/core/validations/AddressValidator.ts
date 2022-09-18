@@ -1,4 +1,4 @@
-import {Joi} from "celebrate";
+import {Joi, Segments} from "celebrate";
 
 export const validateAddress = {
   street: Joi.string().required(),
@@ -9,3 +9,8 @@ export const validateAddress = {
   country: Joi.string().required(),
   state: Joi.string().required(),
 };
+
+export const validateCreateAddress = {
+  [Segments.BODY]: Joi.object().keys(validateAddress),
+};
+

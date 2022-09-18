@@ -11,7 +11,7 @@ export const validateCreateAgency = {
   }),
 };
 
-export const validateVerifyAgency = {
+export const validateAgencyIdInPath = {
   [Segments.PARAMS]: Joi.object().keys({
     id: Joi.string().required(),
   }),
