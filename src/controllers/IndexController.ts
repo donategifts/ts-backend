@@ -1,7 +1,7 @@
 import {controller, httpGet, interfaces, next, request, response} from "inversify-express-utils";
 import * as express from "express";
 
-@controller("/")
+@controller("")
 export class IndexController implements interfaces.Controller {
 
 	@httpGet("/health")
