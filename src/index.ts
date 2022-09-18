@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import {server} from "./core/server";
+import {server} from "./core/Server";
 
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || "localhost";

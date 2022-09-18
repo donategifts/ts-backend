@@ -14,7 +14,7 @@
     "prisma:generate": "npx prisma generate",
     "prisma:introspect": "npx prisma introspect",
     "prisma:migrate-dev": "npx prisma migrate dev --name ",
-    "deploy:start": "npx prisma migrate deploy && node dist/index.js",
+    "deploy:start": "npx prisma migrate deploy --schema=./prisma/schema.prisma && node index.js",
     "prepare": "husky install"
   },
   "devDependencies": {

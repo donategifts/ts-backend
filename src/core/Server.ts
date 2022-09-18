@@ -1,6 +1,6 @@
 import * as bodyParser from "body-parser";
 import {InversifyExpressServer} from "inversify-express-utils";
-import {container} from "./defaultContainer";
+import {container} from "./DefaultContainer";
 import * as cors from "cors";
 import * as express from "express";
 import {errors} from "celebrate";
