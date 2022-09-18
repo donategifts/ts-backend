@@ -3,6 +3,9 @@ info:
   version: '1'
   title: 'Backend'
   description: Donate gifts backend
+servers:
+  - url: https://ts-backend-dev-vbamtom7tq-uc.a.run.app/
+    description: dev server
 
 paths:
   /user:
@@ -10,17 +13,65 @@ paths:
       summary: Get user data of logged in user
       responses:
         '200':
-          description: The spacecraft corresponding to the provided `spacecraftId`
+          description: the logged in user or nothing if no user exists
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-        404:
-          description: No spacecraft found for the provided `spacecraftId`
+        500:
+          description: Unexpected error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    post:
+      summary: create user with firebase data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+              required:
+                - firstName
+      responses:
+        '200':
+          description: the logged in user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: update user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+      responses:
+        '200':
+          description: the logged in user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         500:
           description: Unexpected error
           content:
@@ -63,5 +114,6 @@ components:
       type: apiKey
       in: header
       name: authorization
+      description: Firebase token in format "Bearer token"
 security:
   - token: []
