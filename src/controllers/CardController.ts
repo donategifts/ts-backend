@@ -27,7 +27,6 @@ export class CardController implements interfaces.Controller {
     if (!agency) {
       throw new Error("Agency missing for user " + req.user.uid);
     }
-    console.log(req.body);
     return this.cardService.create(req.user.uid, agency.id, req.body.addressId, req.body);
   }
 

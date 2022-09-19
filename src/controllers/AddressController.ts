@@ -17,7 +17,6 @@ export class AddressController {
 
   @httpGet("/:id")
   async getAddress(@requestParam("id") id: string): Promise<Address | null> {
-    console.log(id);
     return this.addressService.getById(id);
   }
 
