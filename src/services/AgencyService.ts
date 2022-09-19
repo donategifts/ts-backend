@@ -18,8 +18,8 @@ export class AgencyService {
 
   async create(agencyCreateRequest: AgencyCreateRequest): Promise<Agency> {
     const agency = await this.connector.create(agencyCreateRequest);
-    if(agencyCreateRequest.address) {
-      agencyCreateRequest.address.agencyId = agency.id
+    if (agencyCreateRequest.address) {
+      agencyCreateRequest.address.agencyId = agency.id;
       await this.addressService.create(agencyCreateRequest.address);
     }
     return agency;

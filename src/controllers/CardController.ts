@@ -23,11 +23,11 @@ export class CardController implements interfaces.Controller {
     @response() _res: express.Response,
     @next() _next: express.NextFunction,
   ): Promise<Card> {
-    const agency = await this.agencyService.getByCreatorId(req.user.uid)
+    const agency = await this.agencyService.getByCreatorId(req.user.uid);
     if (!agency) {
-      throw new Error("Agency missing for user " + req.user.uid)
+      throw new Error("Agency missing for user " + req.user.uid);
     }
-    console.log(req.body)
+    console.log(req.body);
     return this.cardService.create(req.user.uid, agency.id, req.body.addressId, req.body);
   }
 

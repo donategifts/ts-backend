@@ -7,7 +7,7 @@ import {DBClient} from "../../core/dbClient";
 export class PrismaAddressConnector implements AddressConnector {
 
   async getById(id: string): Promise<Address | null> {
-    console.log("bla", id)
+    console.log("bla", id);
     return DBClient.address.findFirst({
       where: {id},
     });
@@ -20,7 +20,7 @@ export class PrismaAddressConnector implements AddressConnector {
   async create(addressCreateRequest: AddressCreateRequest): Promise<Address | null> {
     return DBClient.address.create({
       data: addressCreateRequest
-    })
+    });
   }
 
   async getByAgencyId(agencyId: string): Promise<Address[] | null> {
@@ -28,6 +28,7 @@ export class PrismaAddressConnector implements AddressConnector {
       where: {
         agencyId,
       },
-    })
+    });
   }
+
 }

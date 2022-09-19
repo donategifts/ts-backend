@@ -21,7 +21,7 @@ server.setConfig((app) => {
 server.setErrorConfig((app) => {
   app.use(errors());
   app.use(function (error: any, _req: express.Request, res: express.Response, _next: express.NextFunction) {
-    console.log("bla", error)
+    console.log("bla", error);
     if (error instanceof EntryAlreadyExistsError || error instanceof EntryNotFoundError) {
       res.status(error.status || 400).json({error: error.message});
       return;

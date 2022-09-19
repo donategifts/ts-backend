@@ -43,7 +43,7 @@ export class UserController implements interfaces.Controller {
     @response() _res: express.Response,
     @next() _next: express.NextFunction,
   ): Promise<User | null> {
-    console.log(req.user)
+    console.log(req.user);
     return this.userService.getByEmail(req.user.email);
   }
 

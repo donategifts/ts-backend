@@ -64,9 +64,9 @@ export class AgencyController implements interfaces.Controller {
     @response() _res: express.Response,
     @next() _next: express.NextFunction,
   ): Promise<Address[] | null> {
-    const agency = await this.agencyService.getByCreatorId(req.user.uid)
+    const agency = await this.agencyService.getByCreatorId(req.user.uid);
     if (!agency) {
-      return null
+      return null;
     }
 
     return this.addressService.getByAgency(agency.id);

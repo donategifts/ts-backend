@@ -9,14 +9,14 @@ import {EntryNotFoundError} from "../../core/errors/EntryNotFoundError";
 export class PrismaUserConnector implements UserConnector {
 
   async getByEmail(email: string): Promise<User | null> {
-      const user = DBClient.user.findUnique({
-        where: {email},
-      });
+    const user = DBClient.user.findUnique({
+      where: {email},
+    });
 
-      if (!user) {
-        throw new EntryNotFoundError(email)
-      }
-      return user;
+    if (!user) {
+      throw new EntryNotFoundError(email);
+    }
+    return user;
   }
 
   async create(user: UserCreateInput): Promise<User> {

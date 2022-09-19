@@ -45,7 +45,6 @@ export class PrismaCardConnector implements CardConnector {
           images: true
         }
       });
-
     } catch (error) {
       if (error instanceof DBClientType.PrismaClientKnownRequestError) {
         if (error.code === "P2002" && error.meta) {
